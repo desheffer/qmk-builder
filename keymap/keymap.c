@@ -20,6 +20,7 @@ const uint8_t RGBLED_RAINBOW_MOOD_INTERVALS[] PROGMEM = {255, 127, 64};
 
 enum planck_layers {
     _COLEMAK,
+    _QWERTY,
     _NAVIGATION,
     _SHIFT,
     _SYMBOL,
@@ -28,13 +29,18 @@ enum planck_layers {
     _FUNCTION,
 };
 
+enum planck_keycodes {
+    COLEMAK = SAFE_RANGE,
+    QWERTY,
+};
+
 #define ALT_GR  LALT_T(KC_RALT)
-#define FN      MO(_FUNCTION)
+#define CTL_ENT RCTL_T(KC_ENT)
 #define CTL_ESC LCTL_T(KC_ESC)
+#define FN      MO(_FUNCTION)
 #define NAV_SPC LT(_NAVIGATION, KC_SPC)
 #define NUMBER  MO(_NUMBER)
 #define NUMPAD  MO(_NUMPAD)
-#define CTL_ENT RCTL_T(KC_ENT)
 #define SHIFT   MO(_SHIFT)
 #define SYMBOL  MO(_SYMBOL)
 #define TMUX    LALT(KC_O)
@@ -68,7 +74,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * │[Ctrl]  ║        ║        ║        ║        ║        │        ║        ║        ║        ║        ║[Ctrl]  │
  * ├────────╚════════╩════════╩════════╩════════╝────────┼────────╚════════╩════════╩════════╩════════╝────────┤
  * │        │ z      │ x      │ c      │ v      │ b      │ k      │ m      │ ,      │ .      │ /      │        │
- * │[Numpad]│        │        │        │        │        │        │        │        │        │        │        │
+ * │[Numpad]│        │        │        │        │        │        │        │        │        │        │[Shift] │
  * ├────────┼────────┼────────┼────────╔════════╦═════════════════╦════════╗────────┼────────┼────────┼────────┤
  * │        │        │        │ AltGr  ║        ║ Space           ║        ║ ←      │ ↓      │ ↑      │ →      │
  * │[Ctrl]  │[Fn]    │[GUI]   │[Alt]   ║[Symbol]║[Navigation]     ║[Shift] ║        │        │        │        │
@@ -77,7 +83,29 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_COLEMAK] = LAYOUT_planck_grid(
     KC_TAB,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_G,    KC_J,    KC_L,    KC_U,    KC_Y,    KC_QUOT, KC_BSPC,
     CTL_ESC, KC_A,    KC_R,    KC_S,    KC_T,    KC_D,    KC_H,    KC_N,    KC_E,    KC_I,    KC_O,    CTL_ENT,
-    NUMPAD,  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_K,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, ___X___,
+    NUMPAD,  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_K,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
+    KC_LCTL, FN,      KC_LGUI, ALT_GR,  SYMBOL,  NAV_SPC, NAV_SPC, SHIFT,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
+),
+
+/* Qwerty
+ * ┌────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┐
+ * │ Tab    │ q      │ w      │ e      │ r      │ t      │ y      │ u      │ i      │ o      │ p      │ Bkspc  │
+ * │        │        │        │        │        │        │        │        │        │        │        │        │
+ * ├────────╔════════╦════════╦════════╦════════╗────────┼────────╔════════╦════════╦════════╦════════╗────────┤
+ * │ Esc    ║ a      ║ s      ║ d      ║ f      ║ g      │ h      ║ j      ║ k      ║ l      ║ '      ║ Enter  │
+ * │[Ctrl]  ║        ║        ║        ║        ║        │        ║        ║        ║        ║        ║[Ctrl]  │
+ * ├────────╚════════╩════════╩════════╩════════╝────────┼────────╚════════╩════════╩════════╩════════╝────────┤
+ * │        │ z      │ x      │ c      │ v      │ b      │ n      │ m      │ ,      │ .      │ /      │        │
+ * │[Numpad]│        │        │        │        │        │        │        │        │        │        │[Shift] │
+ * ├────────┼────────┼────────┼────────╔════════╦═════════════════╦════════╗────────┼────────┼────────┼────────┤
+ * │        │        │        │ AltGr  ║        ║ Space           ║        ║ ←      │ ↓      │ ↑      │ →      │
+ * │[Ctrl]  │[Fn]    │[GUI]   │[Alt]   ║[Symbol]║[Navigation]     ║[Shift] ║        │        │        │        │
+ * └────────┴────────┴────────┴────────╚════════╩═════════════════╩════════╝────────┴────────┴────────┴────────┘
+ */
+[_QWERTY] = LAYOUT_planck_grid(
+    KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
+    CTL_ESC, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_QUOT, CTL_ENT,
+    NUMPAD,  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
     KC_LCTL, FN,      KC_LGUI, ALT_GR,  SYMBOL,  NAV_SPC, NAV_SPC, SHIFT,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
 ),
 
@@ -195,7 +223,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Function
  * ┌────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┐
- * │        │        │        │        │        │        │        │ F1     │ F2     │ F3     │ F4     │        │
+ * │        │ Qwerty │ Colemk │        │        │        │        │ F1     │ F2     │ F3     │ F4     │        │
  * │        │        │        │        │        │        │        │        │        │        │        │        │
  * ├────────╔════════╦════════╦════════╦════════╗────────┼────────╔════════╦════════╦════════╦════════╗────────┤
  * │ Reset  ║ RGB Mod║ RGB H+ ║ RGB S+ ║ RGB V+ ║        │        ║ F5     ║ F6     ║ F7     ║ F8     ║ PrtSc  │
@@ -209,7 +237,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * └────────┴────────┴────────┴────────╚════════╩═════════════════╩════════╝────────┴────────┴────────┴────────┘
  */
 [_FUNCTION] = LAYOUT_planck_grid(
-    ___X___, ___X___, ___X___, ___X___, ___X___, ___X___, ___X___, KC_F1,   KC_F2,   KC_F3,   KC_F4,   ___X___,
+    ___X___, QWERTY,  COLEMAK, ___X___, ___X___, ___X___, ___X___, KC_F1,   KC_F2,   KC_F3,   KC_F4,   ___X___,
     RESET,   RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI, ___X___, ___X___, KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_PSCR,
     ___X___, ___X___, RGB_HUD, RGB_SAD, RGB_VAD, ___X___, ___X___, KC_F9,   KC_F10,  KC_F11,  KC_F12,  ___X___,
     _______, _______, _______, _______, _______, _______, _______, _______, ___X___, ___X___, ___X___, ___X___
@@ -229,4 +257,23 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     }
 
     return state;
+}
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case COLEMAK:
+            if (record->event.pressed) {
+                set_single_persistent_default_layer(_COLEMAK);
+            }
+            return false;
+            break;
+        case QWERTY:
+            if (record->event.pressed) {
+                set_single_persistent_default_layer(_QWERTY);
+            }
+            return false;
+            break;
+    }
+
+    return true;
 }
