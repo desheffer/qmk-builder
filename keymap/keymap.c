@@ -25,7 +25,6 @@ enum planck_layers {
     _SHIFT,
     _SYMBOL,
     _NUMBER,
-    _NUMPAD,
     _FUNCTION,
 };
 
@@ -40,7 +39,6 @@ enum planck_keycodes {
 #define FN      MO(_FUNCTION)
 #define NAV_SPC LT(_NAVIGATION, KC_SPC)
 #define NUMBER  MO(_NUMBER)
-#define NUMPAD  MO(_NUMPAD)
 #define SHIFT   MO(_SHIFT)
 #define SYMBOL  MO(_SYMBOL)
 #define TMUX    LALT(KC_O)
@@ -74,7 +72,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * │[Ctrl]  ║        ║        ║        ║        ║        │        ║        ║        ║        ║        ║[Ctrl]  │
  * ├────────╚════════╩════════╩════════╩════════╝────────┼────────╚════════╩════════╩════════╩════════╝────────┤
  * │        │ z      │ x      │ c      │ v      │ b      │ k      │ m      │ ,      │ .      │ /      │        │
- * │[Numpad]│        │        │        │        │        │        │        │        │        │        │[Shift] │
+ * │[Shift] │        │        │        │        │        │        │        │        │        │        │[Shift] │
  * ├────────┼────────┼────────┼────────╔════════╦═════════════════╦════════╗────────┼────────┼────────┼────────┤
  * │        │        │        │ AltGr  ║        ║ Space           ║        ║ ←      │ ↓      │ ↑      │ →      │
  * │[Ctrl]  │[Fn]    │[GUI]   │[Alt]   ║[Symbol]║[Navigation]     ║[Shift] ║        │        │        │        │
@@ -83,7 +81,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_COLEMAK] = LAYOUT_planck_grid(
     KC_TAB,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_G,    KC_J,    KC_L,    KC_U,    KC_Y,    KC_QUOT, KC_BSPC,
     CTL_ESC, KC_A,    KC_R,    KC_S,    KC_T,    KC_D,    KC_H,    KC_N,    KC_E,    KC_I,    KC_O,    CTL_ENT,
-    NUMPAD,  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_K,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
+    KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_K,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
     KC_LCTL, FN,      KC_LGUI, ALT_GR,  SYMBOL,  NAV_SPC, NAV_SPC, SHIFT,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
 ),
 
@@ -197,28 +195,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ___X___, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    ___X___,
     ___X___, ___X___, ___X___, ___X___, ___X___, ___X___, ___X___, KC_UNDS, KC_COMM, KC_DOT,  ___X___, ___X___,
     _______, _______, _______, _______, _______, _______, _______, _______, ___X___, ___X___, ___X___, ___X___
-),
-
-/* Numpad
- * ┌────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┐
- * │        │        │        │        │        │        │ /      │ 7      │ 8      │ 9      │ -      │ Bkspc  │
- * │        │        │        │        │        │        │        │        │        │        │        │        │
- * ├────────╔════════╦════════╦════════╦════════╗────────┼────────╔════════╦════════╦════════╦════════╗────────┤
- * │        ║        ║        ║        ║        ║        │ *      ║ 4      ║ 5      ║ 6      ║ +      ║ Enter  │
- * │        ║        ║        ║        ║        ║        │        ║        ║        ║        ║        ║        │
- * ├────────╚════════╩════════╩════════╩════════╝────────┼────────╚════════╩════════╩════════╩════════╝────────┤
- * │########│        │        │        │        │        │        │ 1      │ 2      │ 3      │ =      │        │
- * │########│        │        │        │        │        │        │        │        │        │        │        │
- * ├────────┼────────┼────────┼────────╔════════╦═════════════════╦════════╗────────┼────────┼────────┼────────┤
- * │   --   │   --   │   --   │   --   ║   --   ║   --       --   ║ 0      ║ ,      │ .      │        │        │
- * │   --   │   --   │   --   │   --   ║   --   ║   --       --   ║        ║        │        │        │        │
- * └────────┴────────┴────────┴────────╚════════╩═════════════════╩════════╝────────┴────────┴────────┴────────┘
- */
-[_NUMPAD] = LAYOUT_planck_grid(
-    ___X___, ___X___, ___X___, ___X___, ___X___, ___X___, KC_SLSH, KC_7,    KC_8,    KC_9,    KC_MINS, KC_BSPC,
-    ___X___, ___X___, ___X___, ___X___, ___X___, ___X___, KC_ASTR, KC_4,    KC_5,    KC_6,    KC_PLUS, KC_ENT,
-    ___X___, ___X___, ___X___, ___X___, ___X___, ___X___, ___X___, KC_1,    KC_2,    KC_3,    KC_EQL,  ___X___,
-    _______, _______, _______, _______, _______, _______, _______, KC_0,    KC_COMM, KC_DOT,  ___X___, ___X___
 ),
 
 /* Function
