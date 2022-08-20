@@ -71,18 +71,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * │ Esc    ║ a      ║ r      ║ s      ║ t      ║ d      │ h      ║ n      ║ e      ║ i      ║ o      ║ Enter  │
  * │[Ctrl]  ║        ║        ║        ║        ║        │        ║        ║        ║        ║        ║[Ctrl]  │
  * ├────────╚════════╩════════╩════════╩════════╝────────┼────────╚════════╩════════╩════════╩════════╝────────┤
- * │        │ z      │ x      │ c      │ v      │ b      │ k      │ m      │ ,      │ .      │ /      │        │
- * │[Shift] │        │        │        │        │        │        │        │        │        │        │[Shift] │
+ * │        │ z      │ x      │ c      │ v      │ b      │ k      │ m      │ ,      │ .      │ /      │ AltGr  │
+ * │[Alt]   │        │        │        │        │        │        │        │        │        │        │[Alt]   │
  * ├────────┼────────┼────────┼────────╔════════╦═════════════════╦════════╗────────┼────────┼────────┼────────┤
- * │        │        │        │ AltGr  ║        ║ Space           ║        ║ ←      │ ↓      │ ↑      │ →      │
- * │[Ctrl]  │[Fn]    │[GUI]   │[Alt]   ║[Symbol]║[Navigation]     ║[Shift] ║        │        │        │        │
+ * │        │        │ Colemak│ Qwerty ║        ║ Space           ║        ║ ←      │ ↓      │ ↑      │ →      │
+ * │[GUI]   │[Fn]    │        │        ║[Symbol]║[Navigation]     ║[Shift] ║        │        │        │        │
  * └────────┴────────┴────────┴────────╚════════╩═════════════════╩════════╝────────┴────────┴────────┴────────┘
  */
 [_COLEMAK] = LAYOUT_planck_grid(
     KC_TAB,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_G,    KC_J,    KC_L,    KC_U,    KC_Y,    KC_QUOT, KC_BSPC,
     CTL_ESC, KC_A,    KC_R,    KC_S,    KC_T,    KC_D,    KC_H,    KC_N,    KC_E,    KC_I,    KC_O,    CTL_ENT,
-    KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_K,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
-    KC_LCTL, FN,      KC_LGUI, ALT_GR,  SYMBOL,  NAV_SPC, NAV_SPC, SHIFT,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
+    KC_LALT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_K,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, ALT_GR,
+    KC_LGUI, FN,      ___X___, QWERTY,  SYMBOL,  NAV_SPC, NAV_SPC, SHIFT,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
 ),
 
 /* Qwerty
@@ -96,36 +96,36 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * │        │ z      │ x      │ c      │ v      │ b      │ n      │ m      │ ,      │ .      │ /      │        │
  * │[Shift] │        │        │        │        │        │        │        │        │        │        │[Shift] │
  * ├────────┼────────┼────────┼────────╔════════╦═════════════════╦════════╗────────┼────────┼────────┼────────┤
- * │        │        │        │ AltGr  ║        ║ Space           ║        ║ ←      │ ↓      │ ↑      │ →      │
- * │[Ctrl]  │[Fn]    │[GUI]   │[Alt]   ║[Symbol]║                 ║[Shift] ║        │        │        │        │
+ * │        │ AltGr  │ Colemak│ Qwerty ║        ║ Space           ║        ║ ←      │ ↓      │ ↑      │ →      │
+ * │[Ctrl]  │[Alt]   │        │        ║[Symbol]║                 ║[Shift] ║        │        │        │        │
  * └────────┴────────┴────────┴────────╚════════╩═════════════════╩════════╝────────┴────────┴────────┴────────┘
  */
 [_QWERTY] = LAYOUT_planck_grid(
     KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
     KC_ESC,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_ENT,
     KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
-    KC_LCTL, FN,      KC_LGUI, ALT_GR,  SYMBOL,  KC_SPC,  KC_SPC,  SHIFT,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
+    KC_LCTL, ALT_GR,  COLEMAK, ___X___, SYMBOL,  KC_SPC,  KC_SPC,  SHIFT,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
 ),
 
 /* Navigation
  * ┌────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┐
- * │        │        │        │        │        │        │        │        │ Ctrl-D │ Ctrl-U │        │ Bkspc  │
- * │[Alt]   │        │        │        │        │        │        │        │        │        │        │        │
+ * │        │        │        │        │        │        │        │        │ Ctrl+d │ Ctrl+u │        │ Bkspc  │
+ * │        │        │        │        │        │        │        │        │        │        │        │        │
  * ├────────╔════════╦════════╦════════╦════════╗────────┼────────╔════════╦════════╦════════╦════════╗────────┤
  * │ Esc    ║        ║        ║        ║        ║        │ Tmux   ║ ←      ║ ↓      ║ ↑      ║ →      ║ Del    │
  * │[Ctrl]  ║        ║        ║        ║        ║        │        ║        ║        ║        ║        ║        │
  * ├────────╚════════╩════════╩════════╩════════╝────────┼────────╚════════╩════════╩════════╩════════╝────────┤
  * │        │        │        │        │        │        │        │ Home   │ PgDown │ PgUp   │ End    │ MNext  │
- * │        │        │        │        │        │        │        │        │        │        │        │        │
+ * │[Alt]   │        │        │        │        │        │        │        │        │        │        │        │
  * ├────────┼────────┼────────┼────────╔════════╦═════════════════╦════════╗────────┼────────┼────────┼────────┤
  * │   --   │   --   │   --   │   --   ║   --   ║#################║   --   ║ Mute   │ Vol-   │ Vol+   │ MPlay  │
  * │   --   │   --   │   --   │   --   ║   --   ║#################║   --   ║        │        │        │        │
  * └────────┴────────┴────────┴────────╚════════╩═════════════════╩════════╝────────┴────────┴────────┴────────┘
  */
 [_NAVIGATION] = LAYOUT_planck_grid(
-    KC_LALT, ___X___, ___X___, ___X___, ___X___, ___X___, ___X___, ___X___, VIM_DN,  VIM_UP,  ___X___, KC_BSPC,
+    ___X___, ___X___, ___X___, ___X___, ___X___, ___X___, ___X___, ___X___, VIM_DN,  VIM_UP,  ___X___, KC_BSPC,
     CTL_ESC, ___X___, ___X___, ___X___, ___X___, ___X___, TMUX,    KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_DEL,
-    ___X___, ___X___, ___X___, ___X___, ___X___, ___X___, ___X___, KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_MNXT,
+    KC_LALT, ___X___, ___X___, ___X___, ___X___, ___X___, ___X___, KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_MNXT,
     _______, _______, _______, _______, _______, _______, _______, _______, KC_MUTE, KC_VOLD, KC_VOLU, KC_MPLY
 ),
 
@@ -199,7 +199,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Function
  * ┌────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┐
- * │        │ Qwerty │ Colemk │        │        │        │        │ F1     │ F2     │ F3     │ F4     │        │
+ * │        │ Qwerty │ Colemak│        │        │        │        │ F1     │ F2     │ F3     │ F4     │        │
  * │        │        │        │        │        │        │        │        │        │        │        │        │
  * ├────────╔════════╦════════╦════════╦════════╗────────┼────────╔════════╦════════╦════════╦════════╗────────┤
  * │ Reset  ║ RGB Mod║ RGB H+ ║ RGB S+ ║ RGB V+ ║        │        ║ F5     ║ F6     ║ F7     ║ F8     ║ PrtSc  │
