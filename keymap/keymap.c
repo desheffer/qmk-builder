@@ -41,7 +41,7 @@ enum planck_keycodes {
 #define NUMBER  MO(_NUMBER)
 #define SHIFT   MO(_SHIFT)
 #define SYMBOL  MO(_SYMBOL)
-#define TMUX    LALT(KC_O)
+#define TMUX    LCTL(KC_B)
 #define VIM_DN  LCTL(KC_D)
 #define VIM_UP  LCTL(KC_U)
 #define ___X___ XXXXXXX
@@ -112,7 +112,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * │        │        │        │        │        │        │        │        │ Ctrl-D │ Ctrl-U │        │ Bkspc  │
  * │[Alt]   │        │        │        │        │        │        │        │        │        │        │        │
  * ├────────╔════════╦════════╦════════╦════════╗────────┼────────╔════════╦════════╦════════╦════════╗────────┤
- * │ Esc    ║        ║        ║        ║        ║        │ Alt-O  ║ ←      ║ ↓      ║ ↑      ║ →      ║ Del    │
+ * │ Esc    ║        ║        ║        ║        ║        │ Tmux   ║ ←      ║ ↓      ║ ↑      ║ →      ║ Del    │
  * │[Ctrl]  ║        ║        ║        ║        ║        │        ║        ║        ║        ║        ║        │
  * ├────────╚════════╩════════╩════════╩════════╝────────┼────────╚════════╩════════╩════════╩════════╝────────┤
  * │        │        │        │        │        │        │        │ Home   │ PgDown │ PgUp   │ End    │ MNext  │
