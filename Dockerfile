@@ -19,7 +19,7 @@ RUN pip install qmk
 
 ARG QMK_KEYBOARD=planck/rev6_drop
 ARG QMK_KEYMAP=desheffer
-ARG QMK_TAG=0.17.0
+ARG QMK_TAG=0.25.17
 
 RUN qmk setup -b ${QMK_TAG} -y && \
     qmk config user.keyboard=${QMK_KEYBOARD} && \
