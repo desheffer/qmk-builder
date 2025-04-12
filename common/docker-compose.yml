@@ -5,6 +5,4 @@ services:
     privileged: true
     volumes:
       - /dev:/dev
-      - .:/root/qmk-builder
-      - ./keymap:/root/qmk_firmware/keyboards/planck/keymaps/desheffer
     tty: true
