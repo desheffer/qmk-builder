@@ -17,7 +17,6 @@ enum planck_keycodes {
     QWERTY,
 };
 
-#define ALT_GR  LALT_T(KC_RALT)
 #define CTL_ENT RCTL_T(KC_ENT)
 #define CTL_ESC LCTL_T(KC_ESC)
 #define FN      MO(_FUNCTION)
@@ -65,7 +64,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_COLEMAK] = LAYOUT_planck_grid(
     KC_TAB,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_G,    KC_J,    KC_L,    KC_U,    KC_Y,    KC_QUOT, KC_BSPC,
     CTL_ESC, KC_A,    KC_R,    KC_S,    KC_T,    KC_D,    KC_H,    KC_N,    KC_E,    KC_I,    KC_O,    CTL_ENT,
-    KC_LALT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_K,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, ALT_GR,
+    KC_LALT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_K,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RALT,
     KC_LGUI, FN,      ___X___, QWERTY,  SYMBOL,  NAV_SPC, NAV_SPC, SHIFT,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
 ),
 
@@ -88,7 +87,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
     KC_ESC,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_ENT,
     KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
-    KC_LCTL, ALT_GR,  COLEMAK, ___X___, SYMBOL,  KC_SPC,  KC_SPC,  SHIFT,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
+    KC_LCTL, ___X___, COLEMAK, ___X___, SYMBOL,  KC_SPC,  KC_SPC,  SHIFT,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
 ),
 
 /* Navigation
