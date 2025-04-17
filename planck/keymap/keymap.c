@@ -2,7 +2,7 @@
 
 const uint8_t RGBLED_RAINBOW_MOOD_INTERVALS[] PROGMEM = {255, 127, 64};
 
-enum planck_layers {
+enum layers {
     _COLEMAK,
     _QWERTY,
     _NAVIGATION,
@@ -12,7 +12,7 @@ enum planck_layers {
     _FUNCTION,
 };
 
-enum planck_keycodes {
+enum keycodes {
     COLEMAK = SAFE_RANGE,
     QWERTY,
 };

@@ -1,0 +1,10 @@
+services:
+  builder:
+    extends:
+      file: ../common/docker-compose.yml
+      service: builder
+    build:
+      args:
+        QMK_TAG: 0.28.5
+    volumes:
+      - ./keymap:/root/qmk_firmware/keyboards/keychron/v1/ansi_encoder/keymaps/desheffer
