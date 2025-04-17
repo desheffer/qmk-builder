@@ -27,7 +27,7 @@ clean: up
 
 .PHONY: compile
 compile: up
-	docker compose exec builder qmk compile --keyboard $(QMK_KEYBOARD) --keymap $(QMK_KEYMAP)
+	docker compose exec builder qmk compile --keyboard $(QMK_KEYBOARD) --keymap $(QMK_KEYMAP) --parallel 0
 
 .PHONY: flash
 flash: compile
