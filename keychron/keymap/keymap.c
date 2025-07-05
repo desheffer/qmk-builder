@@ -41,7 +41,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     QK_BOOT, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  ___X___,          ___X___,
     ___X___, ___X___, ___X___, ___X___, ___X___, ___X___, ___X___, ___X___, ___X___, ___X___, ___X___, ___X___, ___X___, ___X___,          ___X___,
     RM_TOGG, RM_NEXT, RM_VALU, RM_HUEU, RM_SATU, RM_SPDU, ___X___, ___X___, ___X___, ___X___, ___X___, ___X___, ___X___, ___X___,          ___X___,
-    ___X___, RM_PREV, RM_VALD, RM_HUED, RM_SATD, RM_SPDD, ___X___, ___X___, ___X___, ___X___, ___X___, ___X___,          ___X___,          ___X___,
+    ___X___, RM_PREV, RM_VALD, RM_HUED, RM_SATD, RM_SPDD, ___X___, ___X___, ___X___, ___X___, ___X___, ___X___,          KC_PSCR,          ___X___,
     KC_CAPS, ___X___, ___X___, ___X___, ___X___, ___X___, NK_TOGG, ___X___, ___X___, ___X___, ___X___,                   KC_CAPS, ___X___,
     ___X___, ___X___, ___X___,                   ___X___,                            ___X___, ___X___, ___X___,          ___X___, ___X___, ___X___
 ),
@@ -59,7 +59,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     QK_BOOT, KC_BRID, KC_BRIU, KC_NO,   KC_NO,   RM_VALD, RM_VALU, KC_MPRV, KC_MPLY, KC_MNXT, KC_MUTE, KC_VOLD, KC_VOLU, ___X___,          ___X___,
     ___X___, ___X___, ___X___, ___X___, ___X___, ___X___, ___X___, ___X___, ___X___, ___X___, ___X___, ___X___, ___X___, ___X___,          ___X___,
     RM_TOGG, RM_NEXT, RM_VALU, RM_HUEU, RM_SATU, RM_SPDU, ___X___, ___X___, ___X___, ___X___, ___X___, ___X___, ___X___, ___X___,          ___X___,
-    ___X___, RM_PREV, RM_VALD, RM_HUED, RM_SATD, RM_SPDD, ___X___, ___X___, ___X___, ___X___, ___X___, ___X___,          ___X___,          ___X___,
+    ___X___, RM_PREV, RM_VALD, RM_HUED, RM_SATD, RM_SPDD, ___X___, ___X___, ___X___, ___X___, ___X___, ___X___,          KC_PSCR,          ___X___,
     ___X___, ___X___, ___X___, ___X___, ___X___, ___X___, NK_TOGG, ___X___, ___X___, ___X___, ___X___,                   ___X___, ___X___,
     ___X___, ___X___, ___X___,                   ___X___,                            ___X___, ___X___, ___X___,          ___X___, ___X___, ___X___
 ),
