@@ -27,6 +27,8 @@ enum keycodes {
 #define TMUX    LCTL(KC_B)
 #define VIM_DN  LCTL(KC_D)
 #define VIM_UP  LCTL(KC_U)
+#define VIM_SDN LCTL(KC_E)
+#define VIM_SUP LCTL(KC_Y)
 #define ___X___ XXXXXXX
 
 /* Legend
@@ -92,7 +94,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Navigation
  * ┌────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┐
- * │        │        │        │        │        │        │        │        │ Ctrl+d │ Ctrl+u │        │ Bkspc  │
+ * │        │        │        │        │        │        │        │ Ctrl+y │ Ctrl+d │ Ctrl+u │ Ctrl+e │ Bkspc  │
  * │        │        │        │        │        │        │        │        │        │        │        │        │
  * ├────────╔════════╦════════╦════════╦════════╗────────┼────────╔════════╦════════╦════════╦════════╗────────┤
  * │ Esc    ║        ║        ║        ║        ║        │ Tmux   ║ ←      ║ ↓      ║ ↑      ║ →      ║ Del    │
@@ -106,7 +108,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * └────────┴────────┴────────┴────────╚════════╩═════════════════╩════════╝────────┴────────┴────────┴────────┘
  */
 [_NAVIGATION] = LAYOUT_planck_grid(
-    ___X___, ___X___, ___X___, ___X___, ___X___, ___X___, ___X___, ___X___, VIM_DN,  VIM_UP,  ___X___, KC_BSPC,
+    ___X___, ___X___, ___X___, ___X___, ___X___, ___X___, ___X___, VIM_SUP, VIM_DN,  VIM_UP,  VIM_SDN, KC_BSPC,
     CTL_ESC, ___X___, ___X___, ___X___, ___X___, ___X___, TMUX,    KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_DEL,
     KC_LALT, ___X___, ___X___, ___X___, ___X___, ___X___, ___X___, KC_PGUP, KC_HOME, KC_END,  KC_PGDN, KC_MNXT,
     _______, _______, _______, _______, _______, _______, _______, _______, KC_MUTE, KC_VOLD, KC_VOLU, KC_MPLY
