@@ -220,6 +220,8 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     return state;
 }
 
+static uint16_t qwerty_timer = 0;
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case COLEMAK:
@@ -230,7 +232,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             break;
         case QWERTY:
             if (record->event.pressed) {
-                set_single_persistent_default_layer(_QWERTY);
+                qwerty_timer = timer_read();
+            } else {
+                if (qwerty_timer != 0 && timer_elapsed(qwerty_timer) >= 2000) {
+                    set_single_persistent_default_layer(_QWERTY);
+                }
+                qwerty_timer = 0;
             }
             return false;
             break;
