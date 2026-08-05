@@ -6,29 +6,27 @@ ifndef QMK_KEYMAP
 $(error QMK_KEYMAP is not set)
 endif
 
+ifndef QMK_TAG
+$(error QMK_TAG is not set)
+endif
+
+export QMK_HOME := $(CURDIR)/qmk_firmware
+export QMK_USERSPACE := $(CURDIR)
+
 .PHONY: all
 all: flash
 
-.PHONY: build
-build:
-	docker compose build --pull
-
-.PHONY: up
-up: build
-	docker compose up -d
-
-.PHONY: sh
-sh: up
-	docker compose exec -it builder bash
+qmk_firmware:
+	qmk setup -H $(QMK_HOME) -b $(QMK_TAG) -y
 
 .PHONY: clean
-clean: up
-	docker compose exec builder qmk clean
+clean: qmk_firmware
+	qmk clean
 
 .PHONY: compile
-compile: up
-	docker compose exec builder qmk compile --keyboard $(QMK_KEYBOARD) --keymap $(QMK_KEYMAP) --parallel 0
+compile: qmk_firmware
+	qmk compile --keyboard $(QMK_KEYBOARD) --keymap $(QMK_KEYMAP) --parallel 0
 
 .PHONY: flash
 flash: compile
-	docker compose exec builder qmk flash --keyboard $(QMK_KEYBOARD) --keymap $(QMK_KEYMAP)
+	qmk flash --keyboard $(QMK_KEYBOARD) --keymap $(QMK_KEYMAP)

@@ -1,8 +1,0 @@
-services:
-  builder:
-    build:
-      context: .
-    privileged: true
-    volumes:
-      - /dev:/dev
-    tty: true
