@@ -15,6 +15,7 @@ enum layers {
 #define NAV_SPC LT(_NAVIGATION, KC_SPC)
 #define NUMBER  MO(_NUMBER)
 #define SHIFT   MO(_SHIFT)
+#define SH_UNDO LCTL(KC_UNDS)
 #define SYMBOL  MO(_SYMBOL)
 #define TMUX    LCTL(KC_B)
 #define VIM_DN  LCTL(KC_D)
@@ -71,7 +72,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * │ Esc    ║ MPrev  ║ Mute   ║ MPlay  ║ MNext  ║        │        │  │        │ Tmux   ║ ←      ║ ↓      ║ ↑      ║ →      ║        │
  * │[Ctrl]  ║        ║        ║        ║        ║        ├────────┤  ├────────┤        ║        ║        ║        ║        ║        │
  * ├────────╚════════╩════════╩════════╩════════╝────────┤ WheelD │  │   --   ├────────╚════════╩════════╩════════╩════════╝────────┤
- * │        │        │        │        │        │        │        │  │   --   │        │ PgUp   │ Home   │ End    │ PgDown │        │
+ * │        │ Ctrl+_ │        │        │        │        │        │  │   --   │        │ PgUp   │ Home   │ End    │ PgDown │        │
  * │[Alt]   │        │        │        │        │        ├────────┘  └────────┤        │        │        │        │        │        │
  * └────────┴────────┴────────┴────────┴────────┴────────┘                    └────────┴────────┴────────┴────────┴────────┴────────┘
  *                                 ┌────────┐┌────────┐╔════════╗      ╔════════╗┌────────┐┌────────┐
@@ -82,7 +83,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_NAVIGATION] = LAYOUT_split_3x6_3_ex2(
     ___X___, ___X___, KC_VOLD, KC_VOLU, ___X___, ___X___, MS_WHLU, ___X___, ___X___, VIM_SUP, VIM_DN,  VIM_UP,  VIM_SDN, KC_BSPC,
     CTL_ESC, KC_MPRV, KC_MUTE, KC_MPLY, KC_MNXT, ___X___, MS_WHLD, _______, TMUX,    KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, ___X___,
-    KC_LALT, ___X___, ___X___, ___X___, ___X___, ___X___,                   ___X___, KC_PGUP, KC_HOME, KC_END,  KC_PGDN, ___X___,
+    KC_LALT, SH_UNDO, ___X___, ___X___, ___X___, ___X___,                   ___X___, KC_PGUP, KC_HOME, KC_END,  KC_PGDN, ___X___,
                                _______, _______, _______,                   _______, _______, _______
 ),
 
